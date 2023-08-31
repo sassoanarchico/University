@@ -1,0 +1,19 @@
+
+1) 
+Consideriamo le due stringhe s1 = "palla" e s2 = "pallone". 
+In questo caso si creerebbe una collisione, in quanto, essendo
+il valore di hashCode calcolato sommando gli interi che corrispondono
+ai codici ACII dei primi 4 caratteri di s, si avrebbe lo stesso hashCode.
+Di conseguenza le sue stringhe avranno lo stesso hashCode.
+Per risolvere ciò dovremmo utilizzare il metodo del concatenamento, che 
+consiste di associare le chiavi con lo stesso hashCode in una 
+lista concatenata
+
+2)
+Inserimento = O(1)
+Inserimento con array pieno:
+    i) allocazione = O(1)
+    ii) copia totale = O(n) --> copia singolo elemento = O(1)
+    iii) inserimento = O(1)
+
+Costo totale: O(1) + O(n) + O(1) = O(n)

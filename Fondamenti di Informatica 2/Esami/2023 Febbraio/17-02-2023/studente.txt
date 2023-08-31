@@ -1,0 +1,8 @@
+Cognome: Spinelli
+Nome: Andrea
+Matricola: 1985877
+Email Sapienza: spinelli.1985877@studenti.uniroma1.it
+Esame ([V]ecchio/[N]uovo): N
+Linguaggio ([C]/[J]ava): J
+Posizione (se non riesci a trovarla segnala al docente quando fa controllo documenti): 
+Note (eventuali integrazioni o altro): 

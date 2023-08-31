@@ -1,0 +1,23 @@
+n = lunghezza di l
+
+Algoritmo mergeSort(Lista non ordinata l): 
+    if n > 1:
+        l1 = l.partition(0, n/2)
+        l2 = l.partition(n/2, n)
+        mergeSort(l1)
+        mergeSort(l2)
+        l = merge(l1, l2)
+Fine Algoritmo
+
+Algoritmo merge(Lista l1, Lista l2):
+    Inizializzo una lista vuota --> da ritornare
+    if (l1.key > l2.key)
+        l.add(l1) //aggiungi prima l1 alla lista di ritorno
+        l.add(l2)
+    else 
+        l.add(l2)
+        l.add(l1)
+    return l
+FineAlgoritmo
+
+Il costo di mergeSort è O(nlog(n))

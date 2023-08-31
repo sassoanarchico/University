@@ -1,0 +1,17 @@
+Quesito 2:
+    Domanda 1:
+        Ottenere l'hashcode di una stringa sommando i codici ascii dei primi 4 caratteri non è una
+        buona scelta se l'obiettivo è quello di minimizzare il numero di collisioni, in quanto,
+        per la proprietà commutativa, basta che ci siano due stringhe cui le prime 4 lettere di 
+        una siano un anagramma (eventualmente identico) dell'altra e si crea una collisione:
+        
+        hashcode("nerone") = hashcode("reno") = hashcode("onere") = hashcode("nero") = ... = 436
+
+    Domanda 2:
+        numero di riallocazioni: il più piccolo i t.c:
+            3^i >= n -> i = log_3(n)
+
+        costo i-esimo riallocamento: c + 3^(i-1)
+        costo di ogni inserimento: O(1)
+
+        T(n) = sum [i = 0 -> log_3(n)] (c + 3^(i-1)) + sum [j = 0 -> n] (O(1)) = ... =O(n)

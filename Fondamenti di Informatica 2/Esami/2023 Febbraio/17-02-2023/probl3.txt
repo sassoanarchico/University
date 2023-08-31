@@ -1,0 +1,28 @@
+Si supponga di avere due liste l1 ed l2, ordinate in modo crescente, contenenti rispettivamente n1 e n2 
+stringhe (l'ordinamento è ovviamente quello lessicografico). Si supponga che una stringa possa apparire
+al più una volta in ciascuna lista. 
+
+Si proponga e si scriva lo pseudo-codice del più efficiente algoritmo possibile che, prese in ingresso
+le due liste, restituisca una lista l ordinata, contenente le stringhe che compaiono in l1 ma non in l2 .
+
+Ad esempio, se l1= {a, ac, b, bc, d, eh}  e l2 = {a, ab, bc, eh}, allora l = {ac, b, d}.
+
+Nota: a parte variabili scalari di appoggio, non si possono usare ulteriori strutture dati oltre alle liste.
+
+int i = 0, j = 0;
+while i < n1 do:
+    while j < n2 and compare(l1[i], l2[j]) > 0 do:// finchè 
+        j++ //incrementa l'indice della seconda lista
+    if compare(l1[i],l2[j]) < 0
+        inserisci l1[i] in l;
+
+// Nota: *compare* restituisce un numero negativo se il primo argomento viene prima del secondo in 
+// ordine lessicografico, 0 se i due argomenti sono uguali e un valore maggiore di 0 altrimenti
+------------------------------------------------------------------------------------
+
+Si calcoli il costo asintotico dell'algoritmo proposto.
+
+il costo asintotico dell'algoritmo sopra proposto è O(n1 + n2) = O(max(n1, n2))
+il caso peggiore si ha quando tutti gli elementi della lista l1 compaiono in l2 e n2 > n1
+
+

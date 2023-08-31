@@ -1,0 +1,12 @@
+Cognome: 
+Nome: 
+Matricola: 
+Email Sapienza: 
+Linguaggio ([C]/[J]ava):
+Tipo di esame da sostenere (cancella le linee non applicabili):
+	ASD + Modelli (ultimo ordinamento)
+	ASD + Progettazione SW (vecchio)
+	ASD + Modelli (vecchissimo)
+	ASD solamente (5 o 6 CFU, più vecchio di vecchissimo)
+Note (eventuali integrazioni o altro):
+

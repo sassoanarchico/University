@@ -1,0 +1,27 @@
+Domanda 1:
+
+    Visita dfs:
+        Essendo il grafo completo, l'altezza dell'albero di visita è n: la dfs effettua
+        infatti una visita in profondità e, in un grafo completo, è sempre possibile
+        raggiungere tutti i vertici da ogni vertice.
+        L'albero di visita ottenuto avrà infatti un solo ramo di n vertici di grado 1,
+        che termina con un'unica foglia. Il grado massimo dell'albero è infatti 1.
+
+    Visita bfs:
+        Essendo il grafo completo, ogni vertice è raggiungibile da qualsiasi altro
+        vertice, dunque in una visita bfs siamo in grado di attraversare tutti i vertici
+        del grafo già dal livello 1. L'albero sarà dunque formato dal nodo di partenza 
+        come radice, e tutti gli altri nodi come suoi figli. Tale albero avrà altezza 2 e
+        n-1 foglie. Ogni foglia avrà grado 1, mentre la radice avrà grado n-1, che coincide
+        con il grado massimo dell'albero di visita;
+
+Domanda 2:
+
+
+    Algoritmo isMinHeap(Tree T)
+        if T è vuoto
+            return true
+        Nodo v = T.root
+        return v.key < v.right.key and v.key < v.left.key and isMinHeap(v.left) and isMinHeap(v.right)
+        // se è rispettato l'ordinamento nel nodo v, allora non resta che controllare ricorsivamente
+        // se la proprietà è rispettata anche nei suoi due figli.

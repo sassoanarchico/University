@@ -1,0 +1,8 @@
+Cognome:
+Nome:
+Matricola:
+Email:
+Corso ([A]lgoritmi + modelli N.O., Algoritmi + [P]rogettazione del software V.O., Algoritmi + [M]odelli V.O.):
+Esame ([V]ecchio/[N]uovo):
+Linguaggio ([J]ava/[C]):
+Note: (scrivi qui informazioni che ritieni di portare all'attenzione del docente)
