@@ -1,0 +1,38 @@
+\documentclass[a4paper]{book}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{ragged2e}
+\usepackage{blindtext}
+\title{Riassunto Comand SQL}
+\author{erPaffo}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\begin{frame}
+		
+		\section{SELECT}
+		
+			L'istruzione \textbf{select} seleziona gli attributi su cui si fonderà la query.  \\
+			\begin{center}
+			\justifying
+			\textcolor{red}{\textbf{select}} \emph{Attributo, ..., Attributo}  \\
+ 			\textcolor{red}{\textbf{from}} \emph{Tabella}  \\
+			\textcolor{red}{\textbf{where}} \emph{Condizione}  \\
+			\end{center} 
+		
+		\section{AS}
+			Per ridenominare usiamo \textbf{as} nella clausola \textbf{from}
+			\begin{center}
+			\justifying
+			\textcolor{red}{\textbf{select}}p.nome \textbf{as} name, p.reddito as salary  \\
+ 			\textcolor{red}{\textbf{from}} \emph{Tabella}  \\
+			\textcolor{red}{\textbf{where}} \emph{Condizione}  \\
+			\end{center} 
+
+	\end{frame}
+
+
+
+
+\end{document}
