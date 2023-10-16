@@ -1,0 +1,1 @@
+constraints schifosiena delete from automobile where citta = 'Siena'
