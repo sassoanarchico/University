@@ -1,0 +1,8 @@
+Il protocollo TCP è un protocollo definito a livello di trasporto così come il protocolo UDP, la differenza tra i due sta nel fatto che 
+nel protocollo TCP c'è una caratteristica non trascurabile in un qualsiasi protocollo di rete, ossia l'affidabilità, infatti l'inoltro dei pacchetti è assicurato
+in quanto quelli persi vengono rinviati secondo alcuni meccanismi specifici di ACK se il messaggio è arrivato o di segnalazione negativa in caso contrario, inoltre anche
+l'ordine di invio dei pacchetti conta molto in questo protocollo.
+Il protocollo UDP invece è un protocollo connectionless ed oltre a questo, non è affidabile, per cui i pacchetti persi rimmarranno tali e l'ordine d'invio non è importante.
+Ognuno di essi ha un formato proprio che li differenzia e quando si passa da uno strato all'altro del modello ISO/OSI viene aggiunto un header che caratterizza il livello a cui si trova il pacchetto
+quando risalirà al livello più alto, ossia quello di applicazione, verranno tolti tutti gli header e verrà consegnato il messaggio vero e proprio.
+Nel mondo della rete in generale è preferibile usare un protocollo affidabile come il TCP che garantisce uno scambio sicuro dei pacchetti tra gli utenti.

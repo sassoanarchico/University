@@ -1,0 +1,19 @@
+A)
+Tale modifica comporta un non corretto funzionamento dell' algoritmo
+infatti quando il primo processo (p1) che entrerà nella critical section sceglierà 
+il suo numero (supponiamo scelga 1) che non verrà più settato a 0.
+Questo comporta che quando un successivo processo (p2) proverà ad accedere alla
+ critical section scegliera un numero più grande (supponiamo 2) prima di entrare controllerà tutti i 
+numeri degli altri processi ma non entrerà mai 
+perche p1 (il primo ad entrare) ha un numero minore del suo e non lo cambierà mai.
+p1 potrebbe cambiare il suo numero solo se provasse di nuovo ad accedere alla cs in quel caso p2 verrebbe 
+sbloccato ma questo chiaramente non è voluto da chi progetta il softwere. 
+
+B)
+Sicuramente tale modifica porterebbe a un problema di starvation in quanto come già riportato nell'esempio precedente il 
+processo p2 rimarrebbe un tempo indefinito in attesa di entrare in cs mentre p1 è già uscito.
+Il deadlock non è garantito in quanto p1 potrebbe uscire dalla cs e continuare ad eseguire codice, se dovesse 
+rientrare nella critical section scegliendo un nuovo numero sbloccherebbe uno dei processi che si erano messi in attesa.
+Se invece p1 entra nella cs solo una volta tutti i successivi processi restano bloccati (situazione simile al deadlock) 
+ma non p1.
+Il paradigma di mutua esclusione viene comunque garantito.

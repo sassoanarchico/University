@@ -240,14 +240,14 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
     },
     {
         "esame": "Febbraio d4",
-        "testo_domanda": "Iprocessi applicativi che sono attivi in un host ricevono idati di propria competenza grazie",
+        "testo_domanda": "I processi applicativi che sono attivi in un host ricevono idati di propria competenza grazie",
         "immagine_domanda": None,
         "opzioni": [
             {"testo": "a. alle informazioni contenute nei campi indirizzo di destinazione e tipo di protocollo del pacchetto IP che porta idati."},
             {"testo": "b. alle informazioni di indirizzamento contenute nei dati stessi."},
-            {"testo": "c. alla funzione diindirizzamento svolta dal livello di trasporto (UDP, TCP)"}
+            {"testo": "c. alla funzione di indirizzamento svolta dal livello di trasporto (UDP, TCP)"}
         ],
-        "risposta_corretta": "alla funzione diindirizzamento svolta dal livello di trasporto (UDP, TCP)"
+        "risposta_corretta": "c. alla funzione diindirizzamento svolta dal livello di trasporto (UDP, TCP)"
     },
     {
         "esame": "Febbraio d5",
@@ -554,7 +554,7 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
     },
     {
         "esame": "Quiz Capitolo 3 - 2",
-        "testo_domanda": "Considerando il protocollo TCP, quale affermazione descrive correttamente il meccanismo di controllo della congestione \Slow Start\"?",
+        "testo_domanda": "Considerando il protocollo TCP, quale affermazione descrive correttamente il meccanismo di controllo della congestione \"Slow Start\"?",
         "immagine_domanda": None,
         "opzioni": [
             {"testo": "a. Aumenta esponenzialmente la finestra di congestione dopo ogni ACK duplicato ricevuto."},
@@ -1454,6 +1454,9 @@ def apri_modalita_quiz():
         aggiorna_quiz(dati_quiz[indice_quiz_corrente])
 
     def aggiorna_quiz(quiz):
+        
+        label_esame.config(text="Esame: " + quiz["esame"])
+        label_immagine.config(image=None)
         testo_domanda.set(quiz["testo_domanda"])
         immagine_domanda = carica_immagine(quiz["immagine_domanda"])
 
@@ -1504,6 +1507,10 @@ def apri_modalita_quiz():
     
     quiz_window = tk.Toplevel()
     quiz_window.title("Modalità Quiz")
+    
+    esame = StringVar()
+    label_esame = tk.Label(quiz_window, textvariable=esame)
+    label_esame.pack(expand=True)
 
     testo_domanda = StringVar()
     label_domanda = tk.Label(quiz_window, textvariable=testo_domanda, wraplength=400)
@@ -1556,6 +1563,8 @@ def apri_modalita_esercizio():
         aggiorna_esercizio(esercizio)
         
     def aggiorna_esercizio(esercizio):
+        
+        label_testo_esercizio.config(text="Esame: " + esercizio["esame"] + "\n" + esercizio["testo_domanda"])
         # Pulisce il widget Text e l'immagine
         text_widget.delete('1.0', tk.END)
         label_immagine_esercizio.config(image=None)
