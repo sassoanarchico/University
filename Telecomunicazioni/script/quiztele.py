@@ -323,10 +323,10 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
         "immagine_domanda": None,
         "opzioni": [
             {"testo": "a. distingue tra indirizzi in forma binaria e in rappresentazione \"dotted\""},
-            {"testo": "b. serve a rendere noto da ogni sistema ni che modo li suo indirizzo PI è suddiviso tra net_id e host_id"},
+            {"testo": "b. serve a rendere noto da ogni sistema in che modo li suo indirizzo PI è suddiviso tra net_id e host_id"},
             {"testo": "c. specifica la classe di indirizzamento che è stata adottata"}
         ],
-        "risposta_corretta": "b. serve a rendere noto da ogni sistema ni che modo li suo indirizzo PI è suddiviso tra net_id e host_id"
+        "risposta_corretta": "b. serve a rendere noto da ogni sistema in che modo li suo indirizzo PI è suddiviso tra net_id e host_id"
     },
     {
         "esame": "Febbraio d12",
@@ -367,7 +367,7 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
         "testo_domanda": "Si consideri un brano musicale analogico di durata di 5 minuti con banda di 15 kHz, se lo si campiona con la frequenza di campionamento minima e si utilizzano 8 bit per ogni campione, qual è la lunghezza del brano digitalizzato risultante?",
         "immagine_domanda": None,
         "opzioni": [
-            {"testo": "a. 72Mbye"},
+            {"testo": "a. 72Mbyte"},
             {"testo": "b. 36 Mbit/s"},
             {"testo": "c. 9Mbyte"}
         ],
@@ -700,7 +700,7 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
     {
         "esame": "Primo Test - d8",
         "testo_domanda": "Si consideri il seguente schema. Quante volte un datagramma viene INCAPSULATO in un frame nel percorso di un messaggio M dall'origine alla destinazione?",
-        "immagine_domanda": path_immagine + "/test1/d8",
+        "immagine_domanda": path_immagine + "/test1/d8.png",
         "opzioni": [
             {"testo": "a. 4"},
             {"testo": "b. 2"},
@@ -745,7 +745,7 @@ Quindi, la risposta corretta è 'a. Ws=3'."""
     {
         "esame": "Test 2 - d2",
         "testo_domanda": "Dato il segnale x(t) con trasformata di Fourier X(f) rappresentata in figura, qual è il massimo intervallo di campionamento (Ts) per avere una perfetta ricostruzione del segnale?",
-        "immagine_domanda": path_immagine + "test2/d2",
+        "immagine_domanda": path_immagine + "test2/d2.png",
         "opzioni": [
             {"testo": "a. 1 ms"},
             {"testo": "b. 0,1 ms"},
@@ -835,7 +835,7 @@ Prefisso di sottorete Interfaccia di uscita
     {
         "esame": "Test 2 - d9",
         "testo_domanda": "L'host A invia tre segmenti TCP all'host B, aventi lunghezza rispettivamente 100 Byte, 134 Byte e 78 Byte. Supponendo che il secondo segmento si perda, indicare il valore assunto dall'ultimo dei messaggi di ACK mostrato nella figura.",
-        "immagine_domanda": path_immagine + "test2/d9",
+        "immagine_domanda": path_immagine + "test2/d9.png",
         "opzioni": [
             {"testo": "a. 434"},
             {"testo": "b. 200"},
@@ -848,7 +848,7 @@ Prefisso di sottorete Interfaccia di uscita
     {
         "esame": "Test 2 - d10",
         "testo_domanda": "Si consideri il grafo mostrato in figura. Con riferimento all'esecuzione dell'algoritmo di Dijkstra con radice nel nodo A, si indichi quale nodo viene visitato all'iterazione numero 4",
-        "immagine_domanda": path_immagine + "test2/d10",
+        "immagine_domanda": path_immagine + "test2/d10.png",
         "opzioni": [
             {"testo": "a. C"},
             {"testo": "b. D"},
@@ -1305,7 +1305,7 @@ dati_esercizi = [
 
             Quanto tempo occorre per trasferire un file da 2 kbyte sulla connessione TCP sopra specificata (dall'istante di trasmissione del primo segmento all'istante di ricezione dell'ACK dell'ultimo segmento)?
             """,
-        "immagine_domanda": path_immagine + "tcp/d1",
+        "immagine_domanda": path_immagine + "tcp/d1.png",
         "soluzione": """
             - Soluzione -
 
@@ -1331,7 +1331,7 @@ dati_esercizi = [
 
             Ttot = Tsetup + 4(RTT) + 3T1 = 1.15 s
         """,
-        "immagine_soluzione": path_immagine + "tcp/r1"
+        "immagine_soluzione": path_immagine + "tcp/r1.png"
     },
     {
         "esame": "ESERCIZI CRC E INTERNET CHECKSUM",
@@ -1375,7 +1375,7 @@ Supponendo che questa sorgente dati debba essere trasferita attaverso una linea 
 2. Determinare il numero massimo di sorgenti di questo tipo che possono essere multiplate sulla linea se si adottasse un criterio di multiplazione su base banda di picco.
 3. Qual e’ il rendimento di utilizzazione della linea se si multiplano un numero di sorgerti pari a quelle derivate in 2) ma utilizzando un criterio di multiplazione su base banda media?
 """,
-        "immagine_domanda": path_immagine + "2021/esercizio",
+        "immagine_domanda": path_immagine + "2021/esercizio.png",
         "soluzione": 
 """
 1)
@@ -1455,7 +1455,7 @@ def apri_modalita_quiz():
 
     def aggiorna_quiz(quiz):
         
-        label_esame.config(text="Esame: " + quiz["esame"])
+        label_esame.config(text="Esame: " + quiz["esame"], fg="cyan")
         label_immagine.config(image=None)
         testo_domanda.set(quiz["testo_domanda"])
         immagine_domanda = carica_immagine(quiz["immagine_domanda"])
@@ -1500,16 +1500,15 @@ def apri_modalita_quiz():
         # Adatta la grandezza del pop-up in base al contenuto
         soluzioni_window.geometry('400x300')  # Dimensioni di base, adattabili
     
-    random.seed()
-    random.shuffle(dati_quiz)
+    #random.seed()
+    #random.shuffle(dati_quiz)
     
     indice_quiz_corrente = 0
     
     quiz_window = tk.Toplevel()
     quiz_window.title("Modalità Quiz")
     
-    esame = StringVar()
-    label_esame = tk.Label(quiz_window, textvariable=esame)
+    label_esame = tk.Label(quiz_window)
     label_esame.pack(expand=True)
 
     testo_domanda = StringVar()
@@ -1656,8 +1655,8 @@ def apri_modalita_esercizio():
         # Mantiene il focus sulla finestra del pop-up fino a quando non viene chiuso
         risultato_popup.wait_window()
     
-    random.seed()
-    random.shuffle(dati_esercizi)
+    #random.seed()
+    #random.shuffle(dati_esercizi)
     indice_immagine_corrente = 0
     global text_widget, label_immagine_esercizio
 
