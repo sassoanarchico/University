@@ -1,0 +1,3 @@
+([('quiztele',
+   '/Users/paffo/Documents/GitHub/University/Telecomunicazioni/script/dist/quiztele',
+   'EXECUTABLE')],)

@@ -1,0 +1,4 @@
+Sostituendo l'istruzione che azzera num[i] con num[i]=1 dopo la sezione critica,
+comporta che i processi che si trovano nel while a riga 7 che stanno controllando continuamente se c'è qualche processo che esce dalla sezione critica 
+settando num[i] = 0, saranno costretti a rimanere bloccati lì indefinitamente poichè il processo che termina la sezione critica non setterà mai il suo num a zero.
+Questo comporta il verificarsi di deadlock, la mutua esclusione resta comunque garantita.

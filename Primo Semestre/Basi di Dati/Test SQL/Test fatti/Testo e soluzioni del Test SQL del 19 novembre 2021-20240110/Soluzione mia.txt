@@ -1,0 +1,147 @@
+-------------------------
+|	 Turno 1	|
+-------------------------
+--1
+select codice, nome
+from bambino 
+	join richiesta on codiceb = codice
+where citta != 'Milano' and preferenza >= 4;
+
+--2
+select distinct r1.codiceb
+from giocattolo g1
+	join giocattolo g2 on g1.categoria != g2.categoria
+	join richiesta r1 on g1.codice = r1.codiceg
+	join richiesta r2 on g2.codice = r2.codiceg
+where r1.codiceb = r2.codiceb;
+
+--3
+select distinct codice, citta, count(richiesta)
+from bambino
+	join richiesta on codiceb = codice
+where preferenza = 1
+group by codice;
+
+--4
+with e4 as (
+	select distinct codiceb, codiceg, sum(preferenza) as gradimento
+	from richiesta
+		right join bambino b on b.codice = codiceb
+		right join giocattolo g on g.codice = codiceg
+	where preferenza > 0
+	group by codiceb, codiceg
+)
+select *
+from e4
+union
+select b.codice, g.codice, 0
+from bambino b, giocattolo g
+where (b.codice, g.codice) not in (
+	select distinct codiceb, codiceg
+	from richiesta
+		right join bambino b on b.codice = codiceb
+		right join giocattolo g on g.codice = codiceg
+	where preferenza > 0
+	group by codiceb, codiceg
+);
+
+--5
+with a as (
+with bambini_no_firenze as (
+	select distinct b.codice, b.nome, b.citta
+	from richiesta
+		join bambino b on codiceb = b.codice
+		right join giocattolo g on g.codice = codiceg
+	where citta != 'Firenze'
+)
+select codiceg, avg(preferenza)
+from richiesta
+	join bambini_no_firenze b on codiceb = b.codice
+	join giocattolo g on g.codice = codiceg
+group by codiceg
+union
+select codice, 0
+from giocattolo
+where codice not in (
+	select codiceg
+from richiesta
+	join bambini_no_firenze b on codiceb = b.codice
+	join giocattolo g on g.codice = codiceg
+group by codiceg
+order by codiceg
+))
+select *
+from a
+order by a.codiceg
+
+-------------------------
+|	 Turno 2	|
+-------------------------
+--1
+select codice, nome
+from giocattolo 
+	join richiesta on codiceg = codice
+where categoria != 5 and preferenza <= 4
+order by codice;
+
+--2
+select distinct r1.codiceg
+from richiesta r1
+	join richiesta r2 on r1.preferenza <> r2.preferenza  
+where r1.codiceg = r2.codiceg and r1.codiceb = r2.codiceb
+order by r1.codiceg;
+
+--3
+select distinct codice, categoria, avg(preferenza)
+from richiesta
+	left join giocattolo on codice = codiceg
+group by codice
+order by codice;
+
+--4
+with e4 as (
+	select codiceb, preferenza, count(codiceg)
+	from richiesta r
+		join giocattolo g on g.codice = codiceg and categoria > 3
+	group by codiceb, preferenza
+	union 
+	select distinct codice, preferenza, 0
+	from richiesta r, bambino
+	where codice not in (
+		select codiceb
+		from richiesta, giocattolo g
+		where categoria > 3 and r.preferenza = preferenza
+	)
+)
+select *
+from e4
+order by codiceb, preferenza;
+
+--5
+--delete from richiesta where codiceb = '55' and codiceg = '1200';
+--insert into richiesta values ('55', '1200', 3);
+
+with b_cat_1 (codice) as (
+	select distinct b.codice
+	from bambino b
+	where codice not in (
+		select codiceb
+		from richiesta r
+			join giocattolo g on g.codice = r.codiceg
+		where categoria <> 1
+	)
+)
+select codiceb, avg(preferenza)
+from b_cat_1 
+	join richiesta on codice = codiceb
+group by codiceb
+union 
+select codice, null
+from bambino
+where codice not in (
+	select codiceb
+	from richiesta r
+)
+-------------------------
+|	 Turno 3	|
+-------------------------

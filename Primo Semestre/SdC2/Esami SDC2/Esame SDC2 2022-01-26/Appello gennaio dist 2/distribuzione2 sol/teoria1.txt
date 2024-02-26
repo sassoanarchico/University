@@ -1,0 +1,35 @@
+Un datagram socket è un socket che si appoggia sul protocollo UDP (livello 4 trasporto dello stack).
+Il server crea un socket di tipo datagram e si mette in ascolto su una determinata porta.
+Il client che decide di iniare informazioni al server a sua volta dovrà creare un socket di tipo datagram e inviare 
+informazioni verso l'indirizzo ip e il numero di porta del server.
+I socket di tipo datagram (UDP) non garantiscono che i dati arrivino nella sequenza esatta o che arrivino tutti a destinazione,
+ad esempio alcuni datagram potrebbero essere persi, per questo si dice che il servizio sia di tipo best-effort.
+Il client e server che sono a conoscenza di questa caratteristica del protocollo UDP devono gestire queste condizioni prevedendo 
+cose come il riinvio di dati e gestendo il tutto a livello applicazione.
+ 
+
+Pseudocodice del server:
+socketfd=socket(DATAGRAM,IP_ANY,porta);
+ascolta(socketfd);
+while(1){
+	read(socketfd);
+	...
+	gestisci_messaggio();
+	
+	...
+	write(socketfd);
+}
+
+
+Pseudocodice del client:
+
+socketfd=socket(DATAGRAM,ip,porta);
+
+while(1){
+	elabora();
+	...
+	write(socketfd);
+	...
+	read(socketfd);
+
+}
