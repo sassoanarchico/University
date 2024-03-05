@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/paffo/Documents/GitHub/University/Reti di Calcolatori/Laboratorio/Progettini/1/output/main'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _stringToDate, symObjAddr: 0x0, symBinAddr: 0x1000034B4, symSize: 0xA4 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _stringToDate, symObjAddr: 0x0, symBinAddr: 0x1000034B4, symSize: 0xA4 }
+  - { offsetInCU: 0x77, offset: 0x77, size: 0x8, addend: 0x0, symName: _isLeapYear, symObjAddr: 0xA4, symBinAddr: 0x100003558, symSize: 0x94 }
+  - { offsetInCU: 0x9F, offset: 0x9F, size: 0x8, addend: 0x0, symName: _daysInMonth, symObjAddr: 0x138, symBinAddr: 0x1000035EC, symSize: 0xD0 }
+  - { offsetInCU: 0xD5, offset: 0xD5, size: 0x8, addend: 0x0, symName: _validateDate, symObjAddr: 0x208, symBinAddr: 0x1000036BC, symSize: 0xF0 }
+  - { offsetInCU: 0xFD, offset: 0xFD, size: 0x8, addend: 0x0, symName: _totalDays, symObjAddr: 0x2F8, symBinAddr: 0x1000037AC, symSize: 0x13C }
+  - { offsetInCU: 0x16B, offset: 0x16B, size: 0x8, addend: 0x0, symName: _daysInDate, symObjAddr: 0x434, symBinAddr: 0x1000038E8, symSize: 0x170 }
+  - { offsetInCU: 0x1A1, offset: 0x1A1, size: 0x8, addend: 0x0, symName: _intermediateDate, symObjAddr: 0x5A4, symBinAddr: 0x100003A58, symSize: 0x164 }
+  - { offsetInCU: 0x21F, offset: 0x21F, size: 0x8, addend: 0x0, symName: _printDate, symObjAddr: 0x708, symBinAddr: 0x100003BBC, symSize: 0x98 }
+  - { offsetInCU: 0x243, offset: 0x243, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x7A0, symBinAddr: 0x100003C54, symSize: 0x224 }
+...

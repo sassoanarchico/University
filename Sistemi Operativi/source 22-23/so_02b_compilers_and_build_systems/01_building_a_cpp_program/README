@@ -1,0 +1,11 @@
+To compile this program
+
+1. generate an object file
+   # the executable g++ acts as a compiler+assembler
+   g++ -c hello_world.cpp
+   
+2
+   # the executable g++ acts as a linker
+   g++  -o hello_world hello_world.o
+
+This will produce hello_world, a direct executable

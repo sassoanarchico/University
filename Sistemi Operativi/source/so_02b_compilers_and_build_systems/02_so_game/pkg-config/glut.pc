@@ -1,0 +1,11 @@
+prefix=/usr
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+glx_tls=yes
+Name: freeglut3-dev
+Description: glut helper library
+Version: 0.1
+Requires.private: xcb xxf86vm xcb-dri2 >= 1.8 xdamage >= 1.1 x11 xfixes xcb-glx >= 1.8.1 xext x11-xcb libdrm >= 2.4.75 gl glu
+Libs: -L${libdir} -lglut
+Libs.private: -lglu -lgl -pthread -lm -ldl -lpthread
+Cflags: -I${includedir}/GL

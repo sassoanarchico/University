@@ -1,0 +1,4 @@
+
+$ docker run -it --platform linux/amd64 --net=host --name sistemi_operativi gcc-amd64
+
+$ docker start -ai sistemi_operativi
